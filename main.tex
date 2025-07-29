@@ -1,0 +1,318 @@
+
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc} % <- LIBRERÍA AÑADIDA
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+% Configuración de la página
+\geometry{
+    a4paper,
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+\linespread{1.5}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5ex}
+
+% Encabezado
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small Administración Financiera II GT3 FMOCC UES}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{14pt} % <- ALTURA DEL ENCABEZADO CORREGIDA
+
+% Definición de colores
+\definecolor{darkblue}{RGB}{0,0,100}
+
+% Estilo de las secciones
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{darkblue}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{darkblue}}
+  {\thesubsection}{1em}{}
+
+\begin{document}
+
+% --- Portada ---
+\begin{titlepage}
+    \centering
+    \vspace*{\stretch{1}}
+    
+    {\Huge\bfseries UNIVERSIDAD DE EL SALVADOR}
+    
+    \vspace{0.5cm}
+    
+    {\Large\bfseries FACULTAD MULTIDISCIPLINARIA DE OCCIDENTE}
+    
+    \vspace{0.5cm}
+    
+    {\Large\bfseries DEPARTAMENTO DE CIENCIAS ECONÓMICAS}
+    
+    \vspace{2cm}
+    
+    \rule{\textwidth}{1.5pt}\vspace{0.4cm}
+    {\Huge\bfseries PRESUPUESTO DE INVERSIONES DE CAPITAL}
+    \rule{\textwidth}{1.5pt}\vspace{1cm}
+    
+    % Imagen corregida para no depender de un archivo externo
+    \begin{tikzpicture}[shorthands=off] % <- CORRECCIÓN DE BABEL
+        % Personaje
+        \draw[fill=brown!40] (0,-0.5) ellipse (0.8 and 1.5);
+        \draw[fill=blue!30] (-0.8, -0.5) rectangle (0.8, -2);
+        \draw (-0.3, 0.5) -- (-0.2, 0.6);
+        \draw (0.3, 0.5) -- (0.2, 0.6);
+        \node at (0,0) {\textbf{---}}; % Cara
+        \draw[thick] (-2,-2.2) -- (2,-2.2) -- (2,-3) -- (-2,-3) -- cycle;
+        \draw[thick] (0,-2.6) -- (0,-3);
+        \node at (0, -2.6) [above, rotate=180] {\small PRESUPUESTO};
+
+        % Globo de pensamiento
+        \begin{scope}[xshift=2cm, yshift=1.5cm]
+            \draw[fill=gray!20, thick] (0,0) ellipse (1 and 0.7);
+            \node at (0,0) {\Huge\bfseries\color{blue!80!black} S?};
+            \draw ( -0.8, -0.6) circle (0.1);
+            \draw ( -0.9, -0.9) circle (0.08);
+            \draw ( -1, -1.2) circle (0.06);
+        \end{scope}
+
+    \end{tikzpicture}
+    
+    \vspace{\stretch{2}}
+    
+    {\large Santa Ana, Septiembre de 2021}
+    
+    \vspace{0.5cm}
+    
+    {\large\bfseries Licdo. Carlos Rubén Campos}
+    
+    \vspace*{\stretch{1}}
+    
+\end{titlepage}
+
+\newpage
+
+% --- Contenido del documento ---
+\section{Definiciones del presupuesto de capital.}
+
+¿Qué es el presupuesto de inversiones de capital? (conocido también como presupuesto de capital o elaboración de presupuesto de capital por algunos autores)
+
+Para Van Horne, James el presupuesto de inversiones de capital es el proceso de \textbf{identificar}, \textbf{analizar} y \textbf{seleccionar} proyectos de inversión cuyos rendimientos (flujos de efectivo) se espera que se extiendan más allá de un año.
+
+Para Gitman, Lawrence es el proceso de evaluación y selección de inversiones a largo plazo que son congruentes con la meta de maximización de la riqueza de los dueños de la empresa.
+
+Para el salvadoreño López, Ricardo Balmore es una programación financiera de largo plazo, sobre la cual se basa el crecimiento de la empresa y busca optimizar de una mejor forma los recursos de la empresa, debido a que contiene todos los proyectos con sus montos, metas, tipos y destinos, los cuales al ejecutarse crean valor económico para la empresa.
+
+Dicho lo anterior podemos decir que el presupuesto de capital incluye las siguientes palabras clave: identificar, Analizar, seleccionar, maximizar la riqueza, largo plazo y crecimiento de la empresa.
+
+Usted como estudiante de Administración Financiera II de la UES FMOCC podría pensar que el presupuesto de capital se refiere a cuentas de patrimonio ya que lo habrá relacionado con capital social o que algunos los tratan como sinónimos, lo cual es incorrecto. El presupuesto de capital se refiere a cuenta de Activo no corriente, si observa las distintas definiciones de los autores todos hablan del largo plazo (más de un año desde un punto de vista contable financiero).
+
+Se recordara del flujo de efectivo, visto en contabilidad financiera II, donde las actividades de operación son aquellas que son realizables en un plazo menor al año sean estas cuentas de activo o de pasivo (activo corriente y pasivo corriente), las actividades de inversión son las cuentas de activo de largo plazo (activo no corriente) y las actividades de financiamiento son las del haber a largo plazo (pasivo no corriente y patrimonio).
+
+\begin{center}
+\begin{tikzpicture}[shorthands=off, node distance=0mm]
+    % Contenedor principal
+    \node[draw, minimum width=12cm, minimum height=6cm] (main) at (0,0) {};
+
+    % Debe y Haber
+    \node[fill=yellow, minimum width=6cm, minimum height=6cm, anchor=west] (debe) at (main.west) {};
+    \node[fill=red, minimum width=6cm, minimum height=6cm, anchor=east] (haber) at (main.east) {};
+    \node[above] at (debe.north) {\textbf{Debe}};
+    \node[above] at (haber.north) {\textbf{Haber}};
+    \node at (debe.center) {\parbox{4cm}{\centering\textbf{Recursos de la empresa}}};
+    \node at (haber.center) {\parbox{5cm}{\centering\textbf{Financiamiento de los recursos de la empresa}}};
+
+    % Subdivisiones del Debe
+    \node[fill=green!30, draw, minimum width=3cm, minimum height=3cm, anchor=north] (activo_c) at (debe.north) {\parbox{2.8cm}{\centering Activo corriente (realizable en un año o menos)}};
+    \node[fill=yellow!80!orange, draw, minimum width=3cm, minimum height=3cm, anchor=south] (activo_nc) at (debe.south) {\parbox{2.8cm}{\centering Activo no corriente (realizable en más de un año)}};
+    
+    % Subdivisiones del Haber
+    \node[fill=pink, draw, minimum width=3cm, minimum height=1.5cm, anchor=north west] (pasivo_c) at (haber.north west) {\parbox{2.8cm}{\centering Pasivo corriente (CP)}};
+    \node[fill=pink!80!red, draw, minimum width=3cm, minimum height=2.5cm, anchor=west] (pasivo_nc) at (pasivo_c.south west) {\parbox{2.8cm}{\centering Pasivo No Corriente (LP)}};
+    \node[fill=red!50!pink, draw, minimum width=3cm, minimum height=2cm, anchor=south west] (patrimonio) at (pasivo_nc.south west) {\parbox{2.8cm}{\centering Financiamiento propio (patrimonio)}};
+    
+    \node at ($(pasivo_c.north west)!0.5!(pasivo_nc.south west)$) [xshift=-2cm] {\parbox{2cm}{\centering\textbf{Financiamiento ajeno (pasivo)}}};
+
+    % Actividades
+    \node[draw, anchor=east, minimum height=3cm, minimum width=2.5cm] at (debe.west) {\parbox{2cm}{\centering Actividades de operación}};
+    \node[draw, anchor=east, minimum height=3cm, minimum width=2.5cm] at (activo_nc.west) {\parbox{2cm}{\centering Actividades de Inversión}};
+    \node[draw, anchor=west, minimum height=1.5cm, minimum width=3cm] at (pasivo_c.east) {\parbox{2.8cm}{\centering Actividades de operación}};
+    \node[draw, anchor=west, minimum height=4.5cm, minimum width=3cm] at ($(pasivo_nc.north east)!0.5!(patrimonio.south east)$) {\parbox{2.8cm}{\centering Actividades de Financiamiento}};
+
+\end{tikzpicture}
+\end{center}
+
+En la imagen se muestra en los colores amarillo y rojo una estructura de un balance general, a la izquierda del lector está el debe y a la derecha el haber.
+
+A la derecha del haber se ha colocado dos celdas dividiéndolas en pasivo y patrimonio que son dos fuentes de financiamiento que el analista financiero puede elegir, financiamiento ajeno o financiamiento propio, esta sección se analizara a fondo en la siguiente unidad.
+
+En la izquierda se ubican los activos y en la derecha el pasivo y patrimonio. A la izquierda del debe se desglosa su división en Activo Corriente y Activo No Corriente, dicha clasificación se basa en el periodo de realización de ellos que debe ser durante el periodo de operación o en menos de doce meses, si el estudiante desea consultar una fuente puede revisar las Normas Internacionales de Información para las PYMES en su sección 4. De la misma manera es que se divide él debe en corto y largo plazo (color verde y color amarillo respectivamente) así también se divide el pasivo en corriente y no corriente al lado derecho. Luego en las celdas en color blanco el estudiante podrá ver a qué tipo de actividad corresponde cada sección de un Estado de Situación Financiera o Balance General (el estudiante debe familiarizarse con ambos términos ya que el primero es el nombre que la norma le da y el segundo es el comúnmente conocido). En este tema nos centraremos en las actividades de Inversión.
+
+En la imagen la distribución espacial simétrica entre activos corrientes y activos no corrientes fue con fines ilustrativos para el estudiante, en la práctica es muy difícil que ocurra que ambos tengan las mismas cifras. Puede darse el caso que un alto porcentaje del activo total pertenezca a los \textit{activos NO corrientes}, en el que la empresa no mantenga mucho inventario y les de mucha rotación, o tenga diversas fábricas o bodegas. Caso contrario cuando la empresa tenga un mayor porcentaje de activo total en \textit{activo corriente}, puede deberse a que casi no tenga activos no corrientes y prefiera alquilar bodegas o subcontratar servicios de transporte, en dichos casos las cifras no se verán en el estado de situación financiero sino en el estado de resultados e irán a gastos del periodo.
+
+Ejemplo de cuentas de activos corrientes son el efectivo y equivalentes, inventarios, cuentas por cobrar y gastos pagados por anticipado (mencionando cuenta de mayor, porque en cuentas a detalle son muchas más dependiendo del catálogo de cuentas que utilice la empresa, pero generalmente incluye las mencionadas a menos que sea de servicios que no manejan inventarios como los bancos, seguros, transporte u hoteles), mientras que el activo no corriente lo forman la propiedad planta y equipo, los activos intangibles entre los que están patentes, derechos de llave, franquicias y las inversiones financieras. Los pasivos corrientes tienen cuentas y documentos por cobrar, provisiones por beneficios a empleados, retenciones, deudas con el fisco como impuestos por pagar, los pasivos no corrientes tiene préstamos a largo plazo y otros compromisos de la empresa que son realizables más allá de los 12 meses, por ejemplo si emite bonos de deuda (Llamados bonos corporativos que veremos en otra unidad). También el patrimonio (llamado comúnmente capital contable) incluye capital social, reserva legal y otras reservas que la empresa puede crear (pero que no son deducibles de ISR), utilidades del periodo o retenidas, o incluso una cuenta de pérdidas si se viene arrastrando perdidas de un periodo anterior y otras cuentas como donaciones.
+
+\subsection{Base de acumulación contable o devengo.}
+
+Antes de continuar hay que repasar un principio contable, la base de acumulación contable o devengo, dicho principio consiste en reconocer un ingreso o egreso cuando se acuerda aunque no haya desembolso de efectivo.
+
+Asuma que una empresa X tiene un único cliente Z que le ha sido fiel y le venderá al crédito en diciembre antes del cierre del periodo contable para pagarle en enero 2021. Las transacciones son ventas al crédito 5,000 y costo de venta más gastos de operación 3,800.El Estado de Resultados nos quedaría de la siguiente manera:
+
+\begin{center}
+\begin{tabular}{|l|c|r|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Empresa X}} \\
+\multicolumn{3}{|c|}{\textbf{Estado de resultados del 1/12/2020 al 31/12/2020}} \\
+\hline
+Ventas & \$ & 5,000.00 \\
+\hline
+Costos de venta más gastos de operación & \$ & 3,800.00 \\
+\hline
+\textbf{Utilidad de operación} & \textbf{\$} & \textbf{1,200.00} \\
+\hline
+\end{tabular}
+\end{center}
+
+Habrá una utilidad de 1,200. Pero eso es desde el punto de vista contable, desde el punto de vista financiero no se utiliza el devengo, ya que ese dinero no se tiene en ese momento. Revisemos como quedaría realmente desde el punto de vista financiero:
+
+\begin{center}
+\begin{tabular}{|l|c|r|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Empresa X}} \\
+\multicolumn{3}{|c|}{\textbf{Estado de resultados del 1/12/2020 al 31/12/2020}} \\
+\hline
+Ventas & \$ & - \\
+\hline
+Costos de venta más gastos de operación & \$ & 3,800.00 \\
+\hline
+\textbf{Perdida de operación} & \textbf{\$} & \textbf{(3,800.00)} \\
+\hline
+\end{tabular}
+\end{center}
+
+Se tiene una perdida y el pago de los empleados no se puede atrasar hasta el siguiente mes o el pago a proveedores, incluso el pago de servicios básicos. Por lo tanto no utilizaremos para calcular flujos de efectivo el devengo sino solo cuando el efectivo este programado a ser entregado a la compañía (o que esta lo pague). En este caso el administrador financiera deberá buscar una fuente de financiamiento antes de ese momento para poder pagar dicho déficit, tiene hasta el mes de diciembre, si usted fuera el administrador financiero ¿Qué solución plantearía para evitar tener ese déficit en dicho mes? Asuma que el personal está trabajando a plenitud por lo que no es válido hacer recortes de personal en su respuesta.
+
+Volviendo al tema del presupuesto de capital, lo que busca es obtener un activo que le rinda beneficios futuros, no solo dentro de un año sino más allá.
+
+Ya se analizó que el presupuesto de capital incluye las decisiones de inversión, la compra de bienes como edificios, terrenos, plantas de producción y equipo. A estos se les llama activos productivos y generalmente sientan las bases para generar fuerza y valor en las empresas. Sin embargo el presupuesto de capital también incluye introducción de nuevos productos, nuevos sistemas de distribución o en investigación y desarrollo. El éxito a largo plazo de la empresa depende de las decisiones que se tomen ahora.
+
+Por ejemplo una inversión en un equipo de reparto de producto (un vehículo) cuesta 20,000 dólares con una vida útil estimada en 8 años (aunque fiscalmente la depreciación sea en menos tiempo), ese vehículo lo vera en el Balance General año con año (cada vez con una mayor depreciación depende el método que se use aunque fiscalmente el Ministerio de Hacienda solo acepta el método de línea recta).
+
+Por otro lado tenemos una campaña publicitaria a favor de un nuevo producto que lanzaremos al mercado, una campaña de cuatro años, aunque dicho monto no lo veremos reflejado en el activo no corriente en el balance sino en el estado de resultados como gastos de operación año con año depende que cantidad hayamos programado en cada uno de los años.
+
+\section{Clasificación de las inversiones de capital}
+
+Las inversiones de capital (o proyecto ya que viene siendo uno) se pueden clasificar en base a saber la forma en que se ejecutaran, es decir cual proyecto es necesario para el otro, y cual es indiferente y no afecta el plan de inversión de forma general. Los proyectos se clasificar para la toma de decisiones.
+
+\subsection{Proyectos independientes}
+
+Son proyectos que su ejecución no condiciona la ejecución o marcha de otro proyecto, es decir que su aceptación o rechazo no anula la consideración de otro proyecto; la diferencia de uno con otro proyecto es su nivel de inversión, tiempo de recuperación, costo del capital y que su evaluación agregue valor a la empresa.
+
+\subsection{Proyectos dependientes.}
+
+Son aquellos que su ejecución está condicionada a la ejecución de otro proyecto, debido a que son necesarios; en ese caso su evaluación será importante debido a que en algunos casos estos proyectos no generan flujos de efectivo positivos, hasta pueden llegar a tener retornos negativos pero condicionan la ejecución de aquellos que generan flujos de efectivo positivos.
+
+\subsection{Proyectos mutuamente excluyentes.}
+
+Son aquellos proyectos, que la empresa decide por aceptar su ejecución, rechazando uno u otro proyecto, que tiene las mismas funciones o realizan las mismas actividades, se conocen como propuestas o alternativas de inversión., pero tienen la misma función, sus diferencias pueden ser montos, tiempos, costos, materiales o insumos necesarios, recursos humanos, tecnología a aplicar, etc. Estos proyectos implican la aceptación de uno de ellos y sacrificar al resto. Cuando se selecciona una alternativa ya no hay marcha atrás.
+
+También hay otra clasificación y es la siguiente:
+
+\textbf{Proyectos de reemplazo:} Son proyectos que tienen como objetivo conservar el negocio o cubrir la demanda estimada, para ello es necesario reemplazar equipo viejo o dañado para que la compañía no pierda competitividad o quede fuera de la industria. Habría que realizarse dos preguntas: ¿debería seguir utilizando la misma maquinaria? ¿Debería seguir usando los mismos procesos de producción?
+
+\textbf{Proyectos de sustitución:} La planificación o formulación del plan de inversión tiene como objetivo aumentar la competitividad de la empresa, y uno de los objetivos explícitos es la reducción de los costos; en este caso sustituir el equipo o maquinaria tiene como propósito aumentar los niveles de producción y con ello disminuir costo de mano de obra, de materiales y de otros insumos como electricidad, servicios básicos, etc. Y esto se logra reemplazo un equipo útil pero menos eficiente.
+
+\textbf{Proyectos de expansión de productos actuales o mercados actuales:} Estos proyectos implican conocer la competencia, el dominio geográfico y sobre todo la discriminación de precios existentes, generalmente son proyectos que implica expandir el local existente, reconstruir áreas, modificar sala de ventas, modificar planta de producción o redistribuir, abrir otra sucursal, redefinir la estrategia de localización de la planta, del depósito y procesos de distribución.
+
+\textbf{Proyectos de expansión de productos o mercados nuevos:} este tipo de proyecto son de carácter estratégico y generalmente modifican la naturaleza del negocio, esto implica la inversión de grandes sumas de dinero con una recuperación lenta de acuerdo al periodo de vida estimada del proyecto. Son parte del plan estratégico de inversión a largo plazo; uno de los ejemplos es la localización, tamaño y construcción de una nueva planta de producción.
+
+\textbf{Proyectos de seguridad y/o ambientales:} son proyectos que tienen incidencia en el plan de inversión, por que no son excluyentes de las decisiones de inversión en otros proyectos y son inversiones obligatorias que realizan para acatar las órdenes del gobierno o cumplimiento de normas.
+
+\textbf{Proyectos de investigación y desarrollo:} los flujos de efectivo esperados de esta área resultan a veces demasiado inciertos para justificar un análisis de flujo de efectivo esperado. Estos proyectos son generalmente costos hundidos, es decir, que no se recuperan, debido a que son necesarios para contribuir al desarrollo y ejecución de otros proyectos, y como son estudios generalmente se carga a la utilidad de forma porcentual y contablemente aparecen como activos diferidos, pero desde el punto de vista financiero son costos hundidos.
+
+\section{Razones justificantes del presupuesto de Inversión de capital.}
+
+Este presupuesto forma parte de la planeación estratégica de la empresa. Cada proyecto forma parte de los programas del plan estratégico de la empresa.
+
+El presupuesto de capital ayudara a generar valor a la empresa en el largo plazo, en algún momento la empresa requerirá hacer una renovación de su maquinaria o la expansión de sus activos productivos, lo cual no lo deberá hacer al azar o por corazonada, sino en base a una buena planificación para tener menos riesgo. Recuerde, el presupuesto es un tipo de plan.
+
+Los proyectos requieren el análisis de las dimensiones de la inversión, que son consideraciones relevantes relacionadas con el horizonte, las probabilidades de éxito o fracaso, el entorno, el rendimiento y el financiamiento de los proyectos de inversión al momento de su formulación y evaluación.
+
+\textbf{Dimensión estratégica:} un proyecto no debe ser producto de decisiones subjetivas, corazonadas, el azar, ni del derroche innecesario de recursos, sino de un proceso consciente de planeación estratégica.
+
+\textbf{Dimensión económica:} un proyecto debe incidir directamente en la generación de valor de la empresa; salvo que sean inversiones sociales. Un proyecto debe garantizar la generación de flujos futuros mayores a la inversión que los generó y representar la mejor opción frente a otros proyectos.
+
+\textbf{Dimensión de riesgo:} un proyecto debe ser evaluado, planteando diversos escenarios, para determinar sus probabilidades de éxito o fracaso; considerando el riesgo de la entidad, el riesgo inherente al proyecto, el riesgo de mercado, el riesgo de industria.
+
+\textbf{Dimensión financiera:} el rendimiento de un proyecto debe ser mayor que su costo de capital.
+
+\textbf{Dimensión jurídica:} Un proyecto no debe contemplar negocios al margen de las regulaciones estipuladas en la legislación de cada país. Por ejemplo un restaurante que no observe las regulaciones sobre la preparación de alimentos, está expuesto a ser demandado por algún cliente que vea afectada su salud por la ingesta de alimentos contaminados o si un establecimiento no da factura puede ser cerrado temporalmente por el ministerio de hacienda.
+
+Recuerde no asimilar la cultura del país se debe cerrar operaciones, no hacer sondeos de mercado da como resultado no obtener las ventas deseadas y cuando el ambiente competitivo nos ahoga, seguir operando es insostenible, por eso es recomendable estar al día con los cambios en el país, leer noticias y hacer sondeos de mercados antes de una campaña publicitaria.
+
+\section{Perfil de un proyecto de Inversión.}
+
+La formulación de un proyecto es el proceso que abarca desde el diagnóstico de la entidad, generación de ideas, definición y cuantificación de impactos relevantes, proyección de estados financieros incrementales hasta la elaboración del perfil del proyecto de inversión.
+
+El perfil de un proyecto es la representación gráfica de los componentes de una inversión: es decir, la inversión inicial incremental, los flujos de efectivo futuros, el valor terminal, los momentos, los periodos y el horizonte, mediante un diagrama de flujos de efectivo.
+
+\begin{center}
+% Imagen corregida para no depender de un archivo externo
+\begin{tikzpicture}[shorthands=off] % <- CORRECCIÓN DE BABEL
+    % Línea de tiempo base
+    \draw[thick] (-0.5,0) -- (5.5,0);
+    
+    % Inversión Inicial
+    \draw[->, very thick] (0,-1.5) -- (0,0);
+    \node[below] at (0,-1.5) {\textbf{Inversion Inicial}};
+
+    % Flujos Futuros
+    \node[above] at (2.5,1.4) {\textbf{flujos futuros}};
+    \draw[->, very thick] (1,0) -- (1,1);
+    \draw[->, very thick] (2,0) -- (2,1.2);
+    \draw[->, very thick] (3,0) -- (3,1);
+    \draw[->, very thick] (4,0) -- (4,1.2);
+    \draw[->, very thick] (5,0) -- (5,1);
+\end{tikzpicture}
+\end{center}
+
+El diagrama de flujos de efectivo es la representación gráfica de los flujos netos de efectivo esperados en el largo plazo cuyo objetivo principal es facilitar la evaluación de los proyectos con el fin de establecer la mejor alternativa de inversión en función de la maximización de la utilidad.
+
+El perfil del proyecto de inversión es la base para la evaluación de proyectos de inversión, este debe representar visualmente la inversión inicial, los flujos de efectivo autogenerados en el proyecto, el valor terminal y el horizonte de inversión.
+
+\begin{center}
+% Imagen corregida para no depender de un archivo externo
+\fbox{\parbox[c][10cm][c]{\textwidth}{\centering\Large\bfseries [Diagrama del Perfil de Proyecto de Inversión]
+\vspace{1cm}
+\small
+Inversion inicial se coloca al momento 0 \\
+Horizonte de la inversión \\
+Cada periodo inicia y finaliza en un momento dado \\
+Los flujos netos de efectivo futuros se ubican a partir del momento 1 \\
+Valor terminal
+}}
+\end{center}
+
+\section{Preguntas de repaso}
+\begin{enumerate}[label=\arabic*.]
+    \item ¿Qué es un activo fijo?
+    \item ¿Qué es el presupuesto de capital?
+    \item ¿Qué son los proyectos independientes?
+    \item ¿Qué son los proyectos de reemplazo?
+    \item ¿Qué es un proyecto de investigación y desarrollo?
+\end{enumerate}
+
+\end{document}
